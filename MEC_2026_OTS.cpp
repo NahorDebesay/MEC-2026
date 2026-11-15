@@ -214,7 +214,7 @@ void loop() {
         ledcWrite(Rev_Right_LEDC, 0);
         Serial.print("foward movmement on ");
     } 
-    //When 'W' is pressed
+    //When 'S' is pressed
     else if (Reverse) {
         ledcWrite(For_Left_LEDC, 0);
         ledcWrite(For_Right_LEDC, 0);
@@ -222,7 +222,7 @@ void loop() {
         ledcWrite(Rev_Right_LEDC, 1023);
         Serial.print("reverse movmement on ");
     } 
-    //When 'W' is pressed
+    //When 'A' is pressed
     else if (Right) {
         ledcWrite(For_Left_LEDC, 0);
         ledcWrite(For_Right_LEDC, 1023);
@@ -230,7 +230,7 @@ void loop() {
         ledcWrite(Rev_Right_LEDC, 0);
         Serial.print("left movmement on ");
     } 
-    //When 'W' is pressed
+    //When 'D' is pressed
     else if (Left) {
         ledcWrite(For_Left_LEDC, 1023);
         ledcWrite(For_Right_LEDC, 0);
