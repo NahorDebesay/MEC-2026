@@ -1,4 +1,3 @@
-//MEC 2026 OTS CODE
 #include <WiFi.h>
 #include <WebServer.h>
 #include <ESP32Servo.h>
@@ -97,7 +96,7 @@ const char* htmlPage = R"rawliteral(
 <script>
 
   function setupHoldButton(buttonId, paramName) {
-  
+  f
     const btn = document.getElementById(buttonId);
     let isPressed = false;
 
@@ -212,8 +211,8 @@ void loop() {
   if (Foward) {
     //analogWrite(FOWARD_LEFT_MOTOR, 128);
     //analogWrite(FOWARD_RIGHT_MOTOR, 128);
-    ledcWrite(For_Left_LEDC, 128);
-    ledcWrite(For_Right_LEDC, 128);
+    ledcWrite(For_Left_LEDC, 1023);
+    ledcWrite(For_Right_LEDC, 1023);
     ledcWrite(Rev_Left_LEDC, 0);
     ledcWrite(Rev_Right_LEDC, 0);
 
@@ -224,27 +223,27 @@ void loop() {
     //analogWrite(REVERSE_RIGHT_MOTOR, 128);
     ledcWrite(For_Left_LEDC, 0);
     ledcWrite(For_Right_LEDC, 0);
-    ledcWrite(Rev_Left_LEDC, 128);
-    ledcWrite(Rev_Right_LEDC, 128);
+    ledcWrite(Rev_Left_LEDC, 1023);
+    ledcWrite(Rev_Right_LEDC, 1023);
     Serial.print("reverse movmement on ");
   } 
-  else if (Left) {
-    //analogWrite(REVERSE_LEFT_MOTOR, 128);
-    //analogWrite(REVERSE_RIGHT_MOTOR, 128);
-    ledcWrite(For_Left_LEDC, 0);
-    ledcWrite(For_Right_LEDC, 0);
-    ledcWrite(Rev_Left_LEDC, 128);
-    ledcWrite(Rev_Right_LEDC, 128);
-    Serial.print("left movmement on ");
-  } 
-
   else if (Right) {
     //analogWrite(REVERSE_LEFT_MOTOR, 128);
     //analogWrite(REVERSE_RIGHT_MOTOR, 128);
     ledcWrite(For_Left_LEDC, 0);
+    ledcWrite(For_Right_LEDC, 1023);
+    ledcWrite(Rev_Left_LEDC, 1023);
+    ledcWrite(Rev_Right_LEDC, 0);
+    Serial.print("left movmement on ");
+  } 
+
+  else if (Left) {
+    //analogWrite(REVERSE_LEFT_MOTOR, 128);
+    //analogWrite(REVERSE_RIGHT_MOTOR, 128);
+    ledcWrite(For_Left_LEDC, 1023);
     ledcWrite(For_Right_LEDC, 0);
-    ledcWrite(Rev_Left_LEDC, 128);
-    ledcWrite(Rev_Right_LEDC, 128);
+    ledcWrite(Rev_Left_LEDC, 0);
+    ledcWrite(Rev_Right_LEDC, 1023);
     Serial.print("right movmement on ");
   } 
   else {
